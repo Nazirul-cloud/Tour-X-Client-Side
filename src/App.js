@@ -9,6 +9,7 @@ import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Footer from './Pages/Shared/Footer/Footer';
 import ManageServices from './Pages/ManageServices/ManageServices';
+import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 
 
 function App() {
@@ -24,9 +25,15 @@ function App() {
          <Route path='/home'>
             <Home></Home>
          </Route>
+
          <Route path='/login'>
             <Login></Login>
          </Route>
+
+         <Route path='/placeOrder'>
+            <PlaceOrder></PlaceOrder>
+         </Route>
+
          <PrivateRoute path='/booking/:serviceId'>
             <Booking></Booking>
          </PrivateRoute>

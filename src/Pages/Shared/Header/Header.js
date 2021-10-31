@@ -27,7 +27,7 @@ const Header = () => {
                             <Nav.Link as={Link} to="/login">login</Nav.Link>
                         }
                     <Navbar.Text>
-                        Signed in as: <a href="#login"> <img height="10%" width="10%" className="rounded-circle mx-2" src={users?.photoURL} alt="" /> {users?.displayName}</a>
+                        Signed in as: <a href="#login"> <img height="10%" width="10%" className="rounded-circle mx-2" src={users.photoURL} alt="" /> {users?.displayName}</a>
                     </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>

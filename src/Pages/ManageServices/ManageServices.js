@@ -7,17 +7,19 @@ const ManageServices = () => {
     const { register, handleSubmit, reset } = useForm();
     const [services, setServices] = useState([]);
     const [orders, setOrders] = useState([]);
+    const [isUpdate, setIsUpdated] = useState(null);
+
 
 
     useEffect( () =>{
         fetch('http://localhost:8000/orders')
         .then( res => res.json())
         .then (data => setOrders(data))
-    } ,[]);
+    } ,[isUpdate]);
 
-    const orderDelete = email =>{
-        console.log(email);
-        const url = `http://localhost:8000/orders/${email}`;
+    const orderDelete = key =>{
+       
+        const url = `http://localhost:8000/orders/${key}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -25,10 +27,11 @@ const ManageServices = () => {
         .then(data =>{
             console.log(data);
             if(data.deletedCount){
-                alert('Successfully Deleted')
-                const remaining = orders.filter(order => order.email !== email);
-                setOrders(remaining);
-              
+                alert('Successfully Deleted');
+                setIsUpdated(true);
+            }
+            else{
+                setIsUpdated(false);
             }
         })
     };
@@ -119,7 +122,7 @@ const ManageServices = () => {
                      <div className="p-2 bd-highlight"> <img width="250px" height="150px"  src={order.img} alt="" /> </div>
                    <div className="p-2 flex-grow-1 bd-highlight "> <h5>{order.name}</h5></div>
                     <div className="p-2 bd-highlight">
-                        <button onClick={ () =>  orderDelete(order.email) } className='btn btn-danger'>Delete</button>
+                        <button onClick={ () =>  orderDelete(order.key) } className='btn btn-danger'>Delete</button>
                     </div>
                 </div>)
             }

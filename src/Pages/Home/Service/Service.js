@@ -5,11 +5,20 @@ import useAuth from '../../../hooks/useAuth';
 
 
 
+
 const Service = () => {
     const [packages, setPackages] = useState([]);
     const {users} = useAuth();
     const email = users.email ;
-    console.log(email);
+    // console.log(email);
+
+   let unique = Math.floor(Math.random() * 100);
+   let key = unique.toString();
+   console.log(typeof(key));
+ 
+
+   
+    
  
 
     useEffect(() =>{
@@ -24,7 +33,8 @@ const Service = () => {
         const data = (packages[index]);
         data.email = email;
         data.status = "Pending";
-        data.key =
+        data.key = key;
+        
         fetch("http://localhost:8000/order", {
             method: "POST",
             headers: {"content-type": "application/json"},
@@ -34,7 +44,10 @@ const Service = () => {
   
     return (
         <div id="services">
-            
+           <div className="text-primary">
+            <h2>Best Value Trips</h2>
+            <p>Best offers trips from us</p>
+           </div>
             <Row xs={1} md={3} className="g-4 m-3">
           
             {
