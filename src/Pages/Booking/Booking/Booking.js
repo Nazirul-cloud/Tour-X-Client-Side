@@ -17,14 +17,14 @@ const Booking = () => {
 
 
     useEffect(() =>{
-        fetch(`http://localhost:8000/myOrders/${email}`)
+        fetch(`https://creepy-plague-14203.herokuapp.com/myOrders/${email}`)
         .then(res => res.json())
         .then(data =>setOrders(data))
     },[isUpdate])
 
     const onSubmit = data => {
     
-        fetch('http://localhost:8000/order', {
+        fetch('https://creepy-plague-14203.herokuapp.com/order', {
             method: 'POST',
             headers:{
                 'content-type': 'application/json'
@@ -41,7 +41,7 @@ const Booking = () => {
     }
 
     const handleDelete = key =>{
-        const url = `http://localhost:8000/orders/${key}`;
+        const url = `https://creepy-plague-14203.herokuapp.com/orders/${key}`;
         fetch(url, {
             method: 'DELETE'
         })

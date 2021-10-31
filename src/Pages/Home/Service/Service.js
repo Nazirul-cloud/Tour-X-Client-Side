@@ -22,7 +22,7 @@ const Service = () => {
  
 
     useEffect(() =>{
-        fetch("http://localhost:8000/packages")
+        fetch("https://creepy-plague-14203.herokuapp.com/packages")
          .then((res) => res.json())
          .then((data) => setPackages(data));
     } ,[]);
@@ -35,7 +35,7 @@ const Service = () => {
         data.status = "Pending";
         data.key = key;
         
-        fetch("http://localhost:8000/order", {
+        fetch("https://creepy-plague-14203.herokuapp.com/order", {
             method: "POST",
             headers: {"content-type": "application/json"},
             body: JSON.stringify(data),

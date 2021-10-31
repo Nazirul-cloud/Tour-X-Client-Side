@@ -12,14 +12,14 @@ const ManageServices = () => {
 
 
     useEffect( () =>{
-        fetch('http://localhost:8000/orders')
+        fetch('https://creepy-plague-14203.herokuapp.com/orders')
         .then( res => res.json())
         .then (data => setOrders(data))
     } ,[isUpdate]);
 
     const orderDelete = key =>{
        
-        const url = `http://localhost:8000/orders/${key}`;
+        const url = `https://creepy-plague-14203.herokuapp.com/orders/${key}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -38,14 +38,14 @@ const ManageServices = () => {
 
  //-------------------- DELETE PRODUCT START-----------------------//
     useEffect( () =>{
-        fetch('http://localhost:8000/packages')
+        fetch('https://creepy-plague-14203.herokuapp.com/packages')
         .then( res => res.json())
         .then (data => setServices(data))
     } ,[]);
 
   
     const handleDelete = id =>{
-        const url = `http://localhost:8000/packages/${id}`;
+        const url = `https://creepy-plague-14203.herokuapp.com/packages/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -65,7 +65,7 @@ const ManageServices = () => {
     //-------------------- ADD PRODUCT START-----------------------//
     const onSubmit = data => {
 
-       fetch(`http://localhost:8000/addPackage`,{
+       fetch(`https://creepy-plague-14203.herokuapp.com/addPackage`,{
            method: "POST",
            headers: {"Content-Type": "application/json"},
            body: JSON.stringify(data)
